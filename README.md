@@ -13,11 +13,11 @@ The data preparation outputs a directory called question_templates which contain
 
 # Data Preparation #
 ## Files ##
-main_hub.py
-paper_splitter.py
-question_template_maker.py
-question_topic_analyser.py
-utilities.py
+- main_hub.py
+- paper_splitter.py
+- question_template_maker.py
+- question_topic_analyser.py
+- utilities.py
 
 ## How to operate ##
 Run main_hub.py it will show an interface like this:
@@ -83,15 +83,21 @@ This will show the interface:
 - Python process needs to be terminated for the template directory to be created.
 
 ### Organise questions on marks ###
-- This is used for ensuring that the extracted questions were all done correctly since 1 issue that was found in initial testing is that rarely the total marks were read wrong so marks like 35 for 1 question were saved.
-- It organises from lowest to highest, and the extreme values are checked to ensure that there are no possible mistakes#
+- This is used to organise teh question into files based of the number of total marks it is worth.
+- This was needed to make looking up questions with specific number of marks easier during the paper generation phase.
+- Outputs a directory called test2 which contains other directories named after the corresponding number of marks (2,3,4...)
 
 # Paper generation #
 ## Files ##
-main.py
-paper_array_generator.py
-paper_generator.py
-utilities.py
+- main.py
+- paper_array_generator.py
+- paper_generator.py
+- utilities.py
+- test_generator.py
 
 ## How to operate ##
-
+- Run the test_generator.py.
+- It will ask for marks and difficulty:
+    - Marks: Integer
+    - Difficulty: Integer (1 - 3)
+ It will output a pdf called TEST_GENERATION_PAPER.py
