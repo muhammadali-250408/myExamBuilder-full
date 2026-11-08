@@ -1,0 +1,14 @@
+arithmetic sequence
+arithmetic series
+geometric sequence
+geometric series
+common difference
+common ratio
+sum to infinity
+convergent
+divergent
+sigma notation
+recurrence relation
+nth term
+term-to-term rule
+first term

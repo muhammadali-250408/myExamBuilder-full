@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MyExamBuilder — Exam Cover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+
+  /* ============================================================
+     MyExamBuilder — cover page tokens
+     Swap the {{FIELD}} placeholders for your templating engine
+     (Jinja: {{ subject }}, React: {subject}, etc). Every dynamic
+     value is marked with a data-field attribute for easy targeting.
+     ============================================================ */
+
+  :root{
+    --ink:      #0B1F3A;   /* body / structural black */
+    --ink-soft: #5F7186;   /* secondary text */
+    --line:     #B7C1CC;   /* hairline rules */
+    --line-dk:  #0B1F3A;   /* heavier structural rules */
+    --accent:   #3D79A8;   /* single muted accent — brick red, used sparingly */
+    --paper:    #FBFAF7;   /* page background, plain off-white */
+
+    --display: 'Sora', system-ui, sans-serif;
+    --body:    'IBM Plex Sans', system-ui, sans-serif;
+    --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html,body{
+    margin:0; padding:0;
+    background: #E5E8EC;
+    font-family: var(--body);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page{
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12mm auto;
+    background: var(--paper);
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  }
+
+  /* ==================== HEADER ==================== */
+  .header{
+    padding: 9mm 12mm 5mm;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    border-bottom: 2px solid var(--line-dk);
+  }
+  .brand-mark{ display:flex; align-items:baseline; gap:7px; }
+  .brand-mark .glyph{
+    font-family: var(--display);
+    font-weight:700;
+    font-size: 20px;
+    color: var(--accent);
+    letter-spacing: -0.3px;
+    border: 1.4px solid var(--accent);
+    padding: 1px 5px;
+  }
+  .brand-mark .name{
+    font-family: var(--display);
+    font-weight:600;
+    font-size: 19px;
+    letter-spacing: -0.2px;
+    color: var(--ink);
+  }
+  .tagline{
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    margin-top: 3px;
+  }
+  .header-meta{
+    text-align:right;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-soft);
+    line-height:1.65;
+  }
+  .header-meta .ref{
+    color: var(--ink);
+    font-weight:600;
+  }
+
+  /* ==================== BODY ==================== */
+  .body{ padding: 6mm 12mm 10mm; }
+
+  /* ---- candidate strip ---- */
+  .candidate-note{
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    margin-bottom: 3mm;
+  }
+  .candidate-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--line-dk);
+  }
+  .cfield{
+    padding: 3.5mm 4mm 4.5mm;
+    border-right: 1px solid var(--line-dk);
+  }
+  .cfield:last-child{ border-right:none; }
+  .cfield label{
+    display:block;
+    font-size: 9px;
+    color: var(--ink-soft);
+    margin-bottom: 4.5mm;
+  }
+  .cfield .rule{
+    border-bottom: 1px solid var(--ink);
+    height: 5mm;
+  }
+  .id-grid{
+    display:grid;
+    border: 1px solid var(--line-dk);
+    border-top: none;
+  }
+  .id-block{
+    padding: 3.5mm 4mm;
+    display:flex;
+    gap: 10mm;
+  }
+  .id-block label{
+    display:block;
+    font-size: 9px;
+    color: var(--ink-soft);
+    margin-bottom: 2.5mm;
+  }
+  .boxes{ display:flex; gap:2px; }
+  .boxes span{
+    width: 6mm; height:7mm;
+    border: 1px solid var(--ink);
+  }
+
+  /* ---- paper identity ---- */
+  .identity{
+    margin-top: 6mm;
+  }
+  .identity .level{
+    font-family: var(--body);
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    margin-bottom: 1mm;
+  }
+  .identity h1{
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight:700;
+    margin: 0 0 2.5mm;
+    color: var(--ink);
+    letter-spacing: -0.2px;
+  }
+  .meta-line{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--ink);
+    display:flex;
+    gap: 4mm;
+    flex-wrap:wrap;
+  }
+  .meta-line span b{ color: var(--ink-soft); font-weight:500; margin-right:2px; }
+
+  /* ---- equipment + marks row ---- */
+  .info-row{
+    margin-top: 6mm;
+    display:grid;
+    grid-template-columns: 1fr 45mm;
+    border: 1px solid var(--line-dk);
+  }
+  .need-box{
+    padding: 3.5mm 4.5mm;
+    border-right: 1px solid var(--line-dk);
+  }
+  .need-box h3, .marks-box h3{
+    font-family: var(--body);
+    font-size: 10.5px;
+    font-weight:600;
+    color: var(--ink);
+    margin: 0 0 2mm;
+  }
+  .need-box p{
+    margin:0; font-size: 11px; color: var(--ink); line-height:1.5;
+  }
+
+  .marks-box{
+    padding: 3.5mm 4.5mm;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+  }
+  .marks-total .num{
+    font-family: var(--display);
+    font-weight:700;
+    font-size: 24px;
+    color: var(--ink);
+    display:block;
+  }
+  .marks-total .lbl{
+    font-size: 9.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ==================== TEXT SECTIONS ==================== */
+  .sections{ margin-top: 7mm; }
+  .section{ margin-bottom: 5mm; }
+  .section h2{
+    font-family: var(--display);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 2mm;
+  }
+  .section ul{
+    margin: 0; padding: 0; list-style:none;
+  }
+  .section li{
+    position:relative;
+    padding-left: 4.5mm;
+    margin-bottom: 1.5mm;
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .section li::before{
+    content:"–";
+    position:absolute;
+    left:0; top: 0;
+    color: var(--ink-soft);
+  }
+  .section li em{ font-style: italic; color: var(--ink-soft); }
+  .section li b{ font-weight:600; }
+
+  /* ==================== FOOTER ==================== */
+  .footer{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding: 4.5mm 12mm;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--ink-soft);
+  }
+  .turn-over{
+    display:flex; align-items:center; gap:4px;
+    font-family: var(--body);
+    font-weight:500;
+    font-style: italic;
+    color: var(--ink);
+    font-size: 10.5px;
+  }
+  .turn-over .arrow{
+    width:0; height:0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid var(--ink);
+  }
+
+  /* ==================== PRINT ==================== */
+  @media print{
+    html,body{ background:#fff; }
+    .page{ margin:0; box-shadow:none; width:auto; min-height:auto; }
+    @page{ size:A4; margin:0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ==================== HEADER ==================== -->
+  <div class="header">
+    <div>
+      <div class="brand-mark">
+        <span class="glyph">EB</span>
+        <span class="name">MyExamBuilder</span>
+      </div>
+      <div class="tagline">Practice papers, built for you.</div>
+    </div>
+    <div class="header-meta">
+      <div class="ref">REF <span data-field="paper_reference">EB-MATH-A-2026-014</span></div>
+      <div data-field="test_date">Saturday 8 August 2026</div>
+      <div data-field="duration">2 hours 30 minutes</div>
+    </div>
+  </div>
+
+  <!-- ==================== BODY ==================== -->
+  <div class="body">
+
+    <div class="candidate-note">Check your exam details, then complete the fields below</div>
+
+    <div class="candidate-grid">
+      <div class="cfield">
+        <label>Surname</label>
+        <div class="rule"></div>
+      </div>
+      <div class="cfield">
+        <label>Other names</label>
+        <div class="rule"></div>
+      </div>
+    </div>
+
+    <div class="id-grid">
+      <div class="id-block">
+        <div>
+          <label>Centre number</label>
+          <div class="boxes"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div>
+          <label>Candidate number</label>
+          <div class="boxes"><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="identity">
+      <div class="level" data-field="level">Advanced Level · Difficulty: <b>Hard</b></div>
+      <h1 data-field="subject">Mathematics</h1>
+      <div class="meta-line">
+        <span><b>Date</b><span data-field="test_date_short">8 August 2026</span></span>
+        <span><b>Duration</b><span data-field="duration_short">2h 30m</span></span>
+        <span><b>Paper ref.</b><span data-field="paper_reference_short">EB-MATH-A-2026-014</span></span>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="need-box">
+        <h3>You will need</h3>
+        <p data-field="equipment">Formula and statistical tables booklet, scientific or graphical calculator, ruler, pencil for diagrams.</p>
+      </div>
+      <div class="marks-box">
+        <div class="marks-total">
+          <span class="num" data-field="total_marks">125</span>
+          <span class="lbl">Total marks</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TEXT SECTIONS ==================== -->
+    <div class="sections">
+
+      <div class="section">
+        <h2>Before you start</h2>
+        <ul>
+          <li>Write in <b>black pen</b>. Pencil is fine for graphs, diagrams and sketches — keep it dark enough to read (HB or B).</li>
+          <li>Fill in your name, centre number and candidate number at the top of this page.</li>
+          <li>Answer every question in the space given <em>— there's usually more room than you'll need.</em></li>
+          <li>Label multi-part answers clearly so the examiner can follow which part you're answering.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>About this paper</h2>
+        <ul>
+          <li>You'll find <b data-field="question_count">18</b> questions on this paper, worth <b data-field="total_marks_inline">125</b> marks in total.</li>
+          <li>The mark allocation for each question is printed in brackets alongside it — use it to judge your pace.</li>
+          <li>A calculator is permitted, but it must not perform symbolic algebra, calculus, or hold retrievable formulae.</li>
+          <li>Give answers to three significant figures unless the question tells you otherwise.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Exam technique</h2>
+        <ul>
+          <li>Read each question fully before you start writing — the last line often changes what's being asked.</li>
+          <li>Show your working throughout. A correct answer with no method may not earn full marks.</li>
+          <li>Attempt every question — a partial answer can still pick up method marks.</li>
+          <li>Leave time at the end to check your answers, especially arithmetic and units.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <div class="footer">
+    <span>© MyExamBuilder · <span data-field="paper_reference_footer">EB-MATH-A-2026-014</span></span>
+    <span class="turn-over">Turn over <span class="arrow"></span></span>
+    <span data-field="page_number">Page 1 of 12</span>
+  </div>
+
+</div>
+
+</body>
+</html>

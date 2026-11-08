@@ -1,0 +1,10 @@
+radian
+radian measure
+arc length
+sector
+segment
+small angle approximation
+subtend
+sector area
+chord
+pi radians

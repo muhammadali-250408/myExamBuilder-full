@@ -1,0 +1,12 @@
+binomial expansion
+binomial theorem
+expand
+ascending powers
+coefficient
+nCr
+binomial coefficient
+valid for
+approximation
+1 + x
+a + bx
+partial fractions

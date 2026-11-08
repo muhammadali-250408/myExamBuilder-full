@@ -1,0 +1,19 @@
+derivative
+differentiate
+differentiation
+chain rule
+product rule
+quotient rule
+implicit differentiation
+parametric differentiation
+second derivative
+rate of change
+stationary point
+turning point
+gradient
+tangent
+normal
+increasing function
+decreasing function
+dy/dx
+d2y/dx2

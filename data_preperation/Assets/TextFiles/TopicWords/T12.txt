@@ -1,0 +1,12 @@
+vector
+position vector
+unit vector
+magnitude
+scalar product
+dot product
+direction vector
+3D coordinates
+i j k
+perpendicular vectors
+parallel vectors
+angle between vectors

@@ -1,0 +1,54 @@
+proof by contradiction
+contradiction
+algebraic fraction
+partial fraction
+repeated factor
+algebraic division
+polynomial division
+remainder
+divisor
+numerator
+denominator
+irrational
+rational
+assume
+counter-example
+partial
+fractions
+ascending
+powers
+series
+expansion
+binomial
+theorem
+coefficients
+identity
+decompose
+decomposed
+fraction
+quadratic
+parabola
+coefficient
+minimum
+turning point
+vertex
+complete the square
+completing the square
+discriminant
+roots
+root
+factorise
+factorising
+x2
+three term quadratic
+3TQ
+curve
+domain
+even function
+axes
+intercept
+y-intercept
+x-intercept
+positive coefficient
+negative coefficient
+transformed

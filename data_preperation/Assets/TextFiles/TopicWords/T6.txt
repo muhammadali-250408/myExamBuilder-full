@@ -1,0 +1,12 @@
+secant
+cosecant
+cotangent
+sec x
+cosec x
+cot x
+trigonometric identity
+inverse trigonometric function
+arcsin
+arccos
+arctan
+reciprocal trigonometric function

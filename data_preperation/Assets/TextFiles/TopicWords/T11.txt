@@ -1,0 +1,15 @@
+integrate
+integration
+integral
+antiderivative
+reverse chain rule
+integration by substitution
+integration by parts
+partial fractions
+trapezium rule
+area under the curve
+differential equation
+separate the variables
+limits of integration
+definite integral
+indefinite integral

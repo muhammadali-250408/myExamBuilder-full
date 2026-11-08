@@ -1,0 +1,13 @@
+addition formulae
+angle addition
+double-angle formula
+compound angle
+a cos x + b sin x
+R cos(x + a)
+R sin(x + a)
+harmonic form
+identity
+prove
+trigonometric equation
+maximum value
+minimum value

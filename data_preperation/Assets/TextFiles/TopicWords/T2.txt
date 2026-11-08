@@ -1,0 +1,16 @@
+modulus
+modulus function
+mapping
+one-to-one
+many-to-one
+composite function
+inverse function
+domain
+range
+transformation
+translation
+reflection
+stretch
+y = |f(x)|
+y = f(|x|)
+piecewise

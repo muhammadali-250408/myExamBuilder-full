@@ -1,0 +1,11 @@
+iteration
+iterative formula
+Newton-Raphson
+change of sign
+root
+locating roots
+convergence
+converges to
+staircase diagram
+cobweb diagram
+x_(n+1)
