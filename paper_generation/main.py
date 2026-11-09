@@ -13,7 +13,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-API_KEYS =["Jhealoj1nVqjU5K95KylKySUg0fdOOJ-8XhrMmf6ogZGbPU0x_jAaFTrAAlxx_yL_2eYMHVhw_JtGGhMf8M3jSzC-2s5I7GAY2QVI1xRhVLwjtz5R1QI42vp6LtinZe8"]
+API_KEYS = "NO LONGER NEEDED"
 
 @app.post("/generate_paper")
 def generate_paper(data: dict):
