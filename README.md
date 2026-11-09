@@ -1,7 +1,8 @@
 # Overview #
-MyExamBuilder is a website which allows A Level students to create unlimited, specfication aligned papers that are not purely random, it uses an equation of a curve to select the number of mark each question should be, the curve equation was derived after analysing the marks vs question number graphs of 53 International A Level Math past papers.
-Website: myexambuilder.co.uk
-Note: The API runs on a test server, after a few hours of no requests the server goes to sleep, and so paper generations could take up to several minutes to occur, however once activated typically takes a few seconds only.
+- Information on the engineering behind MyExamBuilder can be found here https://github.com/muhammadali-250408/myexambuilder-engineering
+- MyExamBuilder is a website which allows A Level students to create unlimited, specfication aligned papers that are not purely random, it uses an equation of a curve to select the number of mark each question should be, the curve equation was derived after analysing the marks vs question number graphs of 53 International A Level Math past papers.
+- Website: myexambuilder.co.uk
+- Note: The API runs on a test server, after a few hours of no requests the server goes to sleep, and so paper generations could take up to several minutes to occur, however once activated typically takes a few seconds only.
 
 ## 2 Main Systems ##
 It consists of 2 main systems, data preparation and paper generation. 
