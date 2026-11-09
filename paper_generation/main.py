@@ -13,7 +13,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-API_KEYS = "NO LONGER NEEDED"
+API_KEYS = "NO LONGER NEEDED" # this is since  the API only accepts requests from my website 
 
 @app.post("/generate_paper")
 def generate_paper(data: dict):
